@@ -26,3 +26,10 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+
+
+.contactRow:hover td {
+  background: #f0f0f0;
+  cursor: pointer;
+}

@@ -1,10 +1,9 @@
 'use strict';
 
+function MainCtrl($scope, $q) {
+  $scope.contacts = $promise($scope, $q, remoteStorage.contacts.getAll());
+}
+
+MainCtrl.$inject = ['$scope', '$q'];
 angular.module('remoteContactsApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', MainCtrl);

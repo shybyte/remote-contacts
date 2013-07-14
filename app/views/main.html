@@ -1,9 +1,17 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div>
+    <h1>Remote Contacts</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>eMail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contact in contacts" class="contactRow">
+            <td><a href="#{{contact.fn}}/{{contact.id}}">{{contact.fn}}</a></td>
+            <td>{{$contact.email}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
