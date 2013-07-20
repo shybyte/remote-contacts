@@ -16,6 +16,7 @@
         <!-- endbuild -->
 </head>
   <body ng-app="remoteContactsApp">
+  <div class="container">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -25,9 +26,19 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="navbar" bs-navbar>
+        <div class="navbar-inner">
+            <a class="brand" href="#">Remote Contacts</a>
+            <ul class="nav">
+                <li data-match-route="/"><a href="#">My Contacts</a></li>
+                <li data-match-route="/add"><a href="#/add">Add Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
+    <!-- Add your site or application content here -->
+    <div ng-view=""></div>
+  </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -37,6 +48,7 @@
     </script>
 
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/sugar/release/sugar.min.js"></script>
     <script src="libs/remotestorage/remotestorage-debug.js"></script>
     <script src="libs/remotestorage-modules/contacts.js"></script>
 
@@ -63,8 +75,11 @@
         <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
         <!-- endbuild -->
 
+        <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+
         <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
         <!-- endbuild -->
 </body>
 </html>

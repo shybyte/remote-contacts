@@ -1,16 +1,19 @@
 <div>
-    <h1>Remote Contacts</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>Name</th>
             <th>eMail</th>
+            <th>Telephone</th>
+            <th class="actionCol"></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="contact in contacts" class="contactRow">
-            <td><a href="#{{contact.fn}}/{{contact.id}}">{{contact.fn}}</a></td>
-            <td>{{$contact.email}}</td>
+        <tr ng-repeat="contact in contacts | orderBy:'fn'" class="contactRow">
+            <td ng-click="editContact(contact)"><a href="#/contact/{{contact.id}}">{{contact.fn}}</a></td>
+            <td ng-click="editContact(contact)">{{contact.email.value}}</td>
+            <td ng-click="editContact(contact)">{{contact.tel.value}}</td>
+            <td class="actionCol"><a class="btn" href="mailto:{{contact.email.value}}" ng-show="contact.email.value">Write eMail</a></td>
         </tr>
         </tbody>
     </table>

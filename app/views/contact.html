@@ -1,0 +1,17 @@
+<button class="btn btn-danger topRightButton" ng-show="showDelete" ng-click="delete()">Delete</button>
+<h1>{{contact.fn || "New Contact"}}</h1>
+<form ng-submit="save()">
+    <fieldset >
+        <label>Name</label>
+        <input type="text" ng-model="contact.fn" autofocus="true" required>
+    </fieldset>
+    <fieldset>
+        <label>Email</label>
+        <input type="email" ng-model="contact.email.value">
+        <label>Telephone</label>
+        <input type="tel" ng-model="contact.tel.value">
+    </fieldset>
+    <fieldset>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </fieldset>
+</form>
