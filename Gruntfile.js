@@ -243,7 +243,8 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
-            'bower_components/**/*',
+            //'bower_components/**/*',
+            //'libs/**/*',
             'images/{,*/}*.{gif,webp,svg}',
             'styles/fonts/*'
           ]
@@ -333,9 +334,9 @@ module.exports = function (grunt) {
     'concat',
     'copy',
     'cdnify',
-    'ngmin',
+    //'ngmin',
     'cssmin',
-    'uglify',
+    //'uglify',
     'rev',
     'usemin'
   ]);

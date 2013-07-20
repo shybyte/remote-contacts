@@ -39,47 +39,25 @@
     <!-- Add your site or application content here -->
     <div ng-view=""></div>
   </div>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src='//www.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
 
-    <script src="bower_components/angular/angular.js"></script>
+    <!-- build:js scripts/bower_components.js -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/sugar/release/sugar.min.js"></script>
-    <script src="libs/remotestorage/remotestorage-debug.js"></script>
-    <script src="libs/remotestorage-modules/contacts.js"></script>
-
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/utils.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
     <!-- endbuild -->
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/remote-storage-with-contacts.js -->
+    <script src="libs/remotestorage/remotestorage.min.js"></script>
+    <script src="libs/remotestorage-modules/contacts.js"></script>
+    <!-- endbuild -->
 
-        <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+    <!-- build:js({.tmp,app}) scripts/remote-contacts.js -->
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="scripts/controllers/contact.js"></script>
-        <!-- endbuild -->
 </body>
 </html>
