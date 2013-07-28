@@ -13,13 +13,13 @@
             </li>
         </ul>
         <button ng-click="addEmail()">Add Email</button>
-        <label>Telephones</label>
+        <label>Phones</label>
         <ul>
             <li ng-repeat="tel in contact.tels">
                 <input type="tel" ng-model="tel.value"> <button ng-click="deleteTel($index)" title="Delete">X</button>
             </li>
         </ul>
-        <button ng-click="addTel()">Add Email</button>
+        <button ng-click="addTel()">Add Phone</button>
     </fieldset>
     <fieldset>
         <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
