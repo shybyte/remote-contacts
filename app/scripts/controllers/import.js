@@ -18,6 +18,7 @@
   function ImportCtrl($scope,$location) {
     $scope.file = "";
     $scope.contacts = [];
+    $scope.progress = -1;
 
     function importCsvObjects(csvObjects) {
       log(csvObjects);
@@ -73,17 +74,24 @@
     function importContacts2(contacts) {
       var counter = 0;
       var startTime = Date.now();
+      $scope.progress = 1;
       contacts.forEach(function (contact) {
         log("Import:", contact,(Date.now()-startTime)/1000);
         remoteStorage.contacts.add(contact).then(function () {
           counter++;
           log("Imported", contact,(Date.now()-startTime)/1000);
+          $scope.$apply(function () {
+            $scope.progress = counter / contacts.length * 100;
+          });
           if (contacts.length == counter) {
             backToList();
           }
         },function (e) {
           counter++;
           log("Error", contact,e,(Date.now()-startTime)/1000);
+          $scope.$apply(function () {
+            $scope.progress = counter / contacts.length * 100;
+          });
           if (contacts.length == counter) {
             backToList();
           }
@@ -101,8 +109,9 @@
     });
 
     function backToList() {
-      $location.path('/');
-      digest($scope);
+      $scope.$apply(function () {
+        $location.path('/');
+      });
     }
 
   };
