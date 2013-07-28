@@ -1,0 +1,38 @@
+<div style="margin-bottom: 1em;overflow: auto">
+    <button class="btn btn-primary topRightButton" ng-disabled="contacts.length==0" ng-click="importSelectedContacts()">
+        Import Selected Contacts
+    </button>
+    <input type="file" data-file="file" autofocus/>
+</div>
+
+<button ng-click="deSelectAll()" ng-show="contacts.length>0">Deselect All</button>
+<table class="table table-bordered importPreview">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>eMail</th>
+        <th>Telephone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="contact in contacts | orderBy:'fn'" class="contactRow">
+        <td><input type="checkbox" ng-model="contact.selected"/></td>
+        <td ng-click="swapSelection(contact)">{{contact.fn}}</td>
+        <td ng-click="swapSelection(contact)">
+            <ul class="unstyled">
+                <li ng-repeat="email in contact.emails">
+                    {{email.value}}
+                </li>
+            </ul>
+        </td>
+        <td ng-click="swapSelection(contact)">
+            <ul class="unstyled">
+                <li ng-repeat="tel in contact.tels">
+                    {{tel.value}}
+                </li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>

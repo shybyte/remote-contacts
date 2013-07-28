@@ -32,6 +32,7 @@
             <ul class="nav">
                 <li data-match-route="/"><a href="#">My Contacts</a></li>
                 <li data-match-route="/add"><a href="#/add">Add Contact</a></li>
+                <li data-match-route="/import"><a href="#/import">Import</a></li>
             </ul>
         </div>
     </div>
@@ -44,19 +45,25 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/sugar/release/sugar.min.js"></script>
+    <script src="bower_components/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="bower_components/bootstrap/js/bootstrap-button.js"></script>
     <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
     <!-- endbuild -->
 
+    <script src="libs/jquery-csv/jquery-csv.min.js"></script>
+
     <!-- build:js scripts/remote-storage-with-contacts.js -->
-    <script src="libs/remotestorage/remotestorage.min.js"></script>
+    <script src="libs/remotestorage/remotestorage-debug.js"></script>
     <script src="libs/remotestorage-modules/contacts.js"></script>
     <!-- endbuild -->
+
 
     <!-- build:js({.tmp,app}) scripts/remote-contacts.js -->
     <script src="scripts/utils.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/contact.js"></script>
+    <script src="scripts/controllers/import.js"></script>
     <!-- endbuild -->
 
 </body>

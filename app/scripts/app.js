@@ -15,35 +15,26 @@ angular.module('remoteContactsApp', ['$strap.directives'])
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
+      .when('/import', {
+        templateUrl: 'views/import.html',
+        controller: 'ImportCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
+  }).directive('file', function () {
+    return {
+      scope: {
+        file: '='
+      },
+      link: function (scope, el, attrs) {
+        el.bind('change', function (event) {
+          scope.file = event.target.files[0];
+          scope.$apply();
+        });
+      }
+    };
   });
 
 remoteStorage.claimAccess({ contacts: 'rw' });
 remoteStorage.displayWidget();
-
-
-
-
-// just for debugging
-function addAndGetContact(name) {
-  remoteStorage.contacts.add({fn: name}).then(function (savedContact) {
-    console.log("Saved Contact: ", savedContact);
-    remoteStorage.contacts.get(savedContact.id).then(function (loadedContact) {
-      console.log("Loaded Contact: ", savedContact);
-    });
-  });
-}
-
-
-// just for debugging
-// remoteStorage.contacts.add({fn: 'marco'});
-function getLastContact() {
-  remoteStorage.contacts.getAll().then(function (contacts) {
-    console.log("Last Contact by getAll(): ", contacts);
-    remoteStorage.contacts.get(contacts[contacts.length - 1].id).then(function (loadedContact) {
-      console.log("Last Contact by get(id): ", loadedContact);
-    });
-  });
-}

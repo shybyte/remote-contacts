@@ -16,3 +16,9 @@ function $promise($scope, $q, dfd) {
   });
   return $dfd.promise;
 }
+
+function log() {
+  if (console) {
+    console.log.apply(console, arguments)
+  }
+}
