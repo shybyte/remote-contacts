@@ -42,8 +42,9 @@ function ContactCtrl($rootScope, $scope, $q, $location, $routeParams) {
   }
 
   function backToList() {
-    $location.path('/');
-    digest($scope);
+    $scope.$apply(function () {
+      $location.path('/');
+    });
   }
 
 }
